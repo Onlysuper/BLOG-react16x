@@ -24,11 +24,21 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+
+/* .trigger {
+  display: none
+} */
+@media screen and (min-width: 900px) {
+  .trigger,.m-sider{
+     display: none
   }
-  to {
-    transform: rotate(360deg);
+}
+@media screen and (max-width: 900px) {
+  .trigger{
+    display: inline-block;
+  }
+  .m-sider{
+     display: block
   }
 }

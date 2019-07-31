@@ -1,12 +1,45 @@
 import React from 'react';
 import './App.css';
-import { Layout, Menu, Breadcrumb,Icon,Avatar,Row, Col} from 'antd';
-const { Header, Content, Footer,Sider} = Layout;
+import { Layout, Menu,Icon,Avatar,Row, Col,Button} from 'antd';
+import HomeList from "./views/HomeList";
+const { Header, Content,Sider} = Layout;
 
 
   class Routers extends React.Component {
   state = {
     collapsed: true,
+    articleList:[
+    {
+      title:'Vue真是太好了 壹万多字的Vue知识点 超详细!',
+      content:'1⃣️、Vue和其他两大框架的区别 Angular 学习成本太高 React 代码可读性差 Vue 学习成本较低 很容易上手传送门 http...',
+      img:'https://upload-images.jianshu.io/upload_images/12946880-d86d34d90a7b93f0.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
+    },
+    {
+      title:'Vue真是太好了 壹万多字的Vue知识点 超详细!',
+      content:'1⃣️、Vue和其他两大框架的区别 Angular 学习成本太高 React 代码可读性差 Vue 学习成本较低 很容易上手传送门 http...',
+      img:'https://upload-images.jianshu.io/upload_images/12946880-d86d34d90a7b93f0.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
+    },
+    {
+      title:'Vue真是太好了 壹万多字的Vue知识点 超详细!',
+      content:'1⃣️、Vue和其他两大框架的区别 Angular 学习成本太高 React 代码可读性差 Vue 学习成本较低 很容易上手传送门 http...',
+      img:'https://upload-images.jianshu.io/upload_images/12946880-d86d34d90a7b93f0.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
+    },
+    {
+      title:'Vue真是太好了 壹万多字的Vue知识点 超详细!',
+      content:'1⃣️、Vue和其他两大框架的区别 Angular 学习成本太高 React 代码可读性差 Vue 学习成本较低 很容易上手传送门 http...',
+      img:'https://upload-images.jianshu.io/upload_images/12946880-d86d34d90a7b93f0.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
+    },
+    {
+      title:'Vue真是太好了 壹万多字的Vue知识点 超详细!',
+      content:'1⃣️、Vue和其他两大框架的区别 Angular 学习成本太高 React 代码可读性差 Vue 学习成本较低 很容易上手传送门 http...',
+      img:'https://upload-images.jianshu.io/upload_images/12946880-d86d34d90a7b93f0.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
+    },
+    {
+      title:'Vue真是太好了 壹万多字的Vue知识点 超详细!',
+      content:'1⃣️、Vue和其他两大框架的区别 Angular 学习成本太高 React 代码可读性差 Vue 学习成本较低 很容易上手传送门 http...',
+      img:'https://upload-images.jianshu.io/upload_images/12946880-d86d34d90a7b93f0.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
+    }
+    ]
   };
   toggle = () => {
     this.setState({
@@ -40,7 +73,7 @@ const { Header, Content, Footer,Sider} = Layout;
         </Menu>
       </Sider>
       <Layout>
-        <Header style={{ padding: '0,30px'}}>
+        <Header style={{ padding: '0,30px', position: 'fixed', width: '100%',zIndex:1}}>
           <Icon
             className="trigger"
             style={{color:'#fff' }}
@@ -64,10 +97,13 @@ const { Header, Content, Footer,Sider} = Layout;
               </div>
           </div>
         </Header>
-        <Content style={{  padding: 24, background: '#fff', minHeight: 280,maxWidth:1000,width:'100%',margin: '24px auto', }}>
+        <Content style={{  padding: 24, background: '#fff', minHeight: 280,maxWidth:1000,width:'100%',margin: '64px auto 24px', }}>
           <div>
             <Row gutter={16}>
-              <Col xs={24} sm={12} md={16} lg={16} xl={17}>Col</Col>
+              <Col xs={24} sm={12} md={16} lg={16} xl={17}>
+               <HomeList articleList={this.state.articleList}/>
+               <Button type="dashed" style={{width:'100%'}}>阅读更多</Button>
+              </Col>
               <Col xs={24} sm={12} md={4} lg={8} xl={7}>Col</Col>
             </Row>
           </div>

@@ -12,7 +12,6 @@ const { Header, Content,Sider} = Layout;
 
 class Menus extends React.Component {
   constructor(props){
-    console.log(props);
     super(props)
     this.menuHandle=this.menuHandle.bind(this)
   }
@@ -81,14 +80,14 @@ class ContainerBox extends React.Component {
         <MenuRouter mode="inline"/>
       </Sider>
       <Layout>
-        <Header style={{ padding: '0,30px', position: 'fixed', width: '100%',zIndex:1}}>
+        <Header style={{ padding: '0,3rem', position: 'fixed', width: '100%',zIndex:1}}>
           <Icon
             className="trigger"
             style={{color:'#fff' }}
             type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
             onClick={this.toggle}
           />
-          <div className='m-pc-head' style={{maxWidth:1000,width:'100%',margin: '0 auto'}}>
+          <div className='m-pc-head' style={{maxWidth:'100rem',width:'100%',margin: '0 auto'}}>
               <div className="logo" />
               <MenuRouter mode="horizontal"/>
               <div>
@@ -96,12 +95,12 @@ class ContainerBox extends React.Component {
               </div>
           </div>
         </Header>
-        <Content style={{  padding: 24, background: '#fff', minHeight: 280,maxWidth:1000,width:'100%',margin: '64px auto 24px', }}>
+        <Content style={{  padding: '2.4rem', background: '#fff', minHeight: '28rem',maxWidth:'100rem',width:'100%',margin: '6.4rem auto 2.4rem', }}>
           <div>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/home" exact component={HomePage} />
-          <Route path="/about" exact component={AboutPage} />
-          <Route path="/article" component={ArticlePage} />
+            <Route path="/" exact component={HomePage} />
+            <Route path="/home" exact component={HomePage} />
+            <Route path="/about" exact component={AboutPage} />
+            <Route path="/article" component={ArticlePage} />
           </div>
         </Content>
       </Layout>
@@ -118,7 +117,7 @@ class Routers extends React.Component {
   render(){
     return (
       <BrowserRouter>
-      <ContainerBox history={this.props.history}/>
+        <ContainerBox history={this.props.history}/>
       </BrowserRouter>
     )
   }

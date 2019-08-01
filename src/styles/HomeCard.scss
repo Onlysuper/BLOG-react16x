@@ -58,3 +58,12 @@ li {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.more-but{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #007fff;
+  padding: 1rem 0;
+  border-top: 1px solid hsla(0,0%,59.2%,.1);
+  cursor: pointer;
+}

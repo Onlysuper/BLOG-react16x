@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-
-import './HomeList.css';
+import '../styles/HomeList.scss';
 class HomeList extends React.Component{
   constructor(props){
     super()

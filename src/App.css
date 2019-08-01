@@ -10,7 +10,12 @@ ul,li{
   list-style: none;
 }
 
-
+.ant-layout-header{
+  height: 6.4rem;
+  padding: 0 2rem;
+  line-height: 6.4rem;
+  background: #001529;
+}
 .ant-layout{
   background: #fff;
 }

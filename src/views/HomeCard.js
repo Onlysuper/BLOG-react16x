@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar } from 'antd';
+import { Avatar,Icon} from 'antd';
 import '../styles/HomeCard.scss';
 function ListItem(props) {
   const articleList = props.articleList;
@@ -20,7 +20,11 @@ function ListItem(props) {
       <div className='user-block-header'>{props.title}</div>
       <ul className='user-list'>
         {listItems}
-        </ul>
+        <div className='more-but'>
+          <span>完整榜单</span>
+          <Icon type="right" />
+        </div>  
+      </ul>
     </div>
   );
 }

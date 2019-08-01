@@ -49,6 +49,7 @@ class HomePage extends React.Component{
             </Col>
             <Col xs={24} sm={12} md={4} lg={8} xl={7}>
               <HomeCard title="作者榜" articleList={this.state.userList}/>
+              <HomeCard title="作者榜" articleList={this.state.userList}/>
             </Col>
           </Row>
         </Spin>

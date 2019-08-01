@@ -11,9 +11,9 @@ ul,li{
 }
 
 .ant-layout-header{
-  height: 6.4rem;
+  /* height: 6.4rem; */
   padding: 0 2rem;
-  line-height: 6.4rem;
+  /* line-height: 6.4rem; */
   background: #001529;
 }
 .ant-layout{
@@ -34,6 +34,9 @@ ul,li{
 }
 @media screen and (max-width: 900px) {
   /* 小屏幕 */
+  #live2d-widget{
+    display: none
+  }
   .m-pc-head{
     display: none
   }

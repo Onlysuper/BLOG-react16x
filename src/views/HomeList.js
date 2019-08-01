@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+
 import './HomeList.css';
 class HomeList extends React.Component{
   constructor(props){
@@ -9,6 +10,7 @@ class HomeList extends React.Component{
     articleList:[],
     collapsed: true,
   };
+  
   render(){
       return (
         this.props.articleList.map((item,index) =>
@@ -29,6 +31,9 @@ class HomeList extends React.Component{
         )
       )
   }
+  // render(){
+  //   return (<div/>)
+  // }
 }
 
 export default HomeList

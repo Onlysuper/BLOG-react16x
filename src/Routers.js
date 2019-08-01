@@ -1,50 +1,71 @@
 import React from 'react';
+import { BrowserRouter, Route,withRouter } from 'react-router-dom'
 import './App.css';
-import { Layout, Menu,Icon,Avatar,Row, Col,Button} from 'antd';
-import HomeList from "./views/HomeList";
+import { Layout, Menu,Icon,Avatar} from 'antd';
+import HomePage from "./views/HomePage";
+import ArticlePage from "./views/ArticlePage";
+import AboutPage from "./views/AboutPage";
+
+
 const { Header, Content,Sider} = Layout;
 
 
-  class Routers extends React.Component {
-  state = {
-    collapsed: true,
-    articleList:[
-    {
-      title:'Vue真是太好了 壹万多字的Vue知识点 超详细!',
-      content:'1⃣️、Vue和其他两大框架的区别 Angular 学习成本太高 React 代码可读性差 Vue 学习成本较低 很容易上手传送门 http...',
-      img:'https://upload-images.jianshu.io/upload_images/12946880-d86d34d90a7b93f0.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-    },
-    {
-      title:'Vue真是太好了 壹万多字的Vue知识点 超详细!',
-      content:'1⃣️、Vue和其他两大框架的区别 Angular 学习成本太高 React 代码可读性差 Vue 学习成本较低 很容易上手传送门 http...',
-      img:'https://upload-images.jianshu.io/upload_images/12946880-d86d34d90a7b93f0.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-    },
-    {
-      title:'Vue真是太好了 壹万多字的Vue知识点 超详细!',
-      content:'1⃣️、Vue和其他两大框架的区别 Angular 学习成本太高 React 代码可读性差 Vue 学习成本较低 很容易上手传送门 http...',
-      img:'https://upload-images.jianshu.io/upload_images/12946880-d86d34d90a7b93f0.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-    },
-    {
-      title:'Vue真是太好了 壹万多字的Vue知识点 超详细!',
-      content:'1⃣️、Vue和其他两大框架的区别 Angular 学习成本太高 React 代码可读性差 Vue 学习成本较低 很容易上手传送门 http...',
-      img:'https://upload-images.jianshu.io/upload_images/12946880-d86d34d90a7b93f0.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-    },
-    {
-      title:'Vue真是太好了 壹万多字的Vue知识点 超详细!',
-      content:'1⃣️、Vue和其他两大框架的区别 Angular 学习成本太高 React 代码可读性差 Vue 学习成本较低 很容易上手传送门 http...',
-      img:'https://upload-images.jianshu.io/upload_images/12946880-d86d34d90a7b93f0.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-    },
-    {
-      title:'Vue真是太好了 壹万多字的Vue知识点 超详细!',
-      content:'1⃣️、Vue和其他两大框架的区别 Angular 学习成本太高 React 代码可读性差 Vue 学习成本较低 很容易上手传送门 http...',
-      img:'https://upload-images.jianshu.io/upload_images/12946880-d86d34d90a7b93f0.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
+class MenuPc extends React.Component {
+  constructor(pops){
+    super(pops)
+    this.menuHandle=this.menuHandle.bind(this)
+  }
+  menuHandle(e){
+    let name = e.key;
+    if(name==='home'){
+      this.props.history.push(`/home`);
+    }else if(name==='article'){
+      this.props.history.push(`/article`);
+    }else if(name==='about'){
+      this.props.history.push(`/about`);
     }
-    ]
+  }
+  render(){
+    return (
+          <Menu
+            theme="dark"
+            mode="horizontal"
+            defaultSelectedKeys={['2']}
+            style={{ lineHeight: '64px',flex:'1' }}
+            onClick={this.menuHandle}
+          >
+            <Menu.Item key="home">首页</Menu.Item>
+            <Menu.Item key="article">文章</Menu.Item>
+            <Menu.Item key="about">关于</Menu.Item>
+          </Menu>
+      
+    )
+  }
+}
+const WithMenuPc = withRouter(MenuPc);
+
+class ContainerBox extends React.Component {
+  constructor(pops){
+    super(pops)
+    this.menuHandle=this.menuHandle.bind(this)
+  }
+  state = {
+    collapsed: true
   };
   toggle = () => {
     this.setState({
       collapsed: !this.state.collapsed,
     });
+  }
+  menuHandle(e){
+    let name = e.key;
+    console.log(this.props);
+    console.log(this.props.history);
+    if(name==='home'){
+
+    }else if(name==='articel'){
+      this.props.history.push(`/articel`);
+    }
   }
   render(){
     return (
@@ -82,16 +103,7 @@ const { Header, Content,Sider} = Layout;
           />
           <div className='m-pc-head' style={{maxWidth:1000,width:'100%',margin: '0 auto'}}>
               <div className="logo" />
-              <Menu
-                theme="dark"
-                mode="horizontal"
-                defaultSelectedKeys={['2']}
-                style={{ lineHeight: '64px',flex:'1' }}
-              >
-                <Menu.Item key="1">nav 1</Menu.Item>
-                <Menu.Item key="2">nav 2</Menu.Item>
-                <Menu.Item key="3">nav 3</Menu.Item>
-              </Menu>
+               <WithMenuPc />
               <div>
               <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf',textAlign:'center' }}>U</Avatar>
               </div>
@@ -99,18 +111,29 @@ const { Header, Content,Sider} = Layout;
         </Header>
         <Content style={{  padding: 24, background: '#fff', minHeight: 280,maxWidth:1000,width:'100%',margin: '64px auto 24px', }}>
           <div>
-            <Row gutter={16}>
-              <Col xs={24} sm={12} md={16} lg={16} xl={17}>
-               <HomeList articleList={this.state.articleList}/>
-               <Button type="dashed" style={{width:'100%'}}>阅读更多</Button>
-              </Col>
-              <Col xs={24} sm={12} md={4} lg={8} xl={7}>Col</Col>
-            </Row>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/home" exact component={HomePage} />
+          <Route path="/about" exact component={AboutPage} />
+          <Route path="/article" component={ArticlePage} />
           </div>
         </Content>
       </Layout>
     </Layout>
     );
+  }
+}
+
+class Routers extends React.Component {
+  constructor(props){
+    super(props);
+    console.log(props);
+  }
+  render(){
+    return (
+      <BrowserRouter>
+      <ContainerBox history={this.props.history}/>
+      </BrowserRouter>
+    )
   }
 }
 

@@ -10,9 +10,10 @@ import AboutPage from "./views/AboutPage";
 const { Header, Content,Sider} = Layout;
 
 
-class MenuPc extends React.Component {
-  constructor(pops){
-    super(pops)
+class Menus extends React.Component {
+  constructor(props){
+    console.log(props);
+    super(props)
     this.menuHandle=this.menuHandle.bind(this)
   }
   menuHandle(e){
@@ -29,7 +30,7 @@ class MenuPc extends React.Component {
     return (
           <Menu
             theme="dark"
-            mode="horizontal"
+            mode={this.props.mode}
             defaultSelectedKeys={['2']}
             style={{ lineHeight: '64px',flex:'1' }}
             onClick={this.menuHandle}
@@ -42,7 +43,8 @@ class MenuPc extends React.Component {
     )
   }
 }
-const WithMenuPc = withRouter(MenuPc);
+
+const MenuRouter = withRouter(Menus);
 
 class ContainerBox extends React.Component {
   constructor(pops){
@@ -59,8 +61,6 @@ class ContainerBox extends React.Component {
   }
   menuHandle(e){
     let name = e.key;
-    console.log(this.props);
-    console.log(this.props.history);
     if(name==='home'){
 
     }else if(name==='articel'){
@@ -78,20 +78,7 @@ class ContainerBox extends React.Component {
         collapsed={this.state.collapsed}
       >
         <div className="logo" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-          <Menu.Item key="1">
-            <Icon type="user" />
-            <span>nav 1</span>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Icon type="video-camera" />
-            <span>nav 2</span>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <Icon type="upload" />
-            <span>nav 3</span>
-          </Menu.Item>
-        </Menu>
+        <MenuRouter mode="inline"/>
       </Sider>
       <Layout>
         <Header style={{ padding: '0,30px', position: 'fixed', width: '100%',zIndex:1}}>
@@ -103,7 +90,7 @@ class ContainerBox extends React.Component {
           />
           <div className='m-pc-head' style={{maxWidth:1000,width:'100%',margin: '0 auto'}}>
               <div className="logo" />
-               <WithMenuPc />
+              <MenuRouter mode="horizontal"/>
               <div>
               <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf',textAlign:'center' }}>U</Avatar>
               </div>

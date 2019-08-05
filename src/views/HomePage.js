@@ -3,7 +3,9 @@ import { Spin } from 'antd';
 import HomeList from "./HomeList";
 import HomeCard from "./HomeCard";
 import { Row, Col,Button} from 'antd';
-import {getAriticle,getUsers} from '../common/apis'
+import {getAriticle,getUsers} from '../common/apis';
+// vuex start
+// vuex end
 class HomePage extends React.Component{
   constructor(props){
     super()
@@ -48,6 +50,7 @@ class HomePage extends React.Component{
             <Col xs={24} sm={12} md={16} lg={16} xl={17}>
               <Spin spinning={this.state.loadingArticle}>
                 <HomeList articleList={this.state.articleList}/>
+                <Button type="primary">Button</Button>
                 <Button type="dashed" style={{width:'100%'}}>阅读更多</Button>
               </Spin>
             </Col>

@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Route,withRouter } from 'react-router-dom'
+// import './style.less'  //引入less文件
 import './App.css';
 import { Layout, Menu,Icon,Avatar} from 'antd';
 import HomePage from "./views/HomePage";
 import ArticlePage from "./views/ArticlePage";
 import AboutPage from "./views/AboutPage";
+import CounPage from "./views/CounPage";
 
 
 const { Header, Content,Sider} = Layout;
@@ -17,13 +19,7 @@ class Menus extends React.Component {
   }
   menuHandle(e){
     let name = e.key;
-    if(name==='home'){
-      this.props.history.push(`/home`);
-    }else if(name==='article'){
-      this.props.history.push(`/article`);
-    }else if(name==='about'){
-      this.props.history.push(`/about`);
-    }
+    this.props.history.push(`/${name}`);
   }
   render(){
     return (
@@ -37,6 +33,7 @@ class Menus extends React.Component {
             <Menu.Item key="home">首页</Menu.Item>
             <Menu.Item key="article">文章</Menu.Item>
             <Menu.Item key="about">关于</Menu.Item>
+            <Menu.Item key="count">计数器</Menu.Item>
           </Menu>
       
     )
@@ -101,6 +98,8 @@ class ContainerBox extends React.Component {
             <Route path="/home" exact component={HomePage} />
             <Route path="/about" exact component={AboutPage} />
             <Route path="/article" component={ArticlePage} />
+            <Route path="/count" component={CounPage} />
+            {/* <Route path="/count" component={countPage} /> */}
           </div>
         </Content>
       </Layout>
@@ -112,7 +111,7 @@ class ContainerBox extends React.Component {
 class Routers extends React.Component {
   constructor(props){
     super(props);
-    console.log(props);
+    // console.log(props);
   }
   render(){
     return (
